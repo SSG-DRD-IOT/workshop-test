@@ -7,7 +7,6 @@
   - Lab - [Basic End to End Object Detection Example](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/object-detection/README.md)
 
 * **Hardware Heterogeneity** - Priyanka
-  - Slides - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/presentations/03-Hardware-Heterogeneity.pptx)
   - Lab - [Hardware Heterogeneity](https://github.com/intel-iot-devkit/smart-video-workshop/blob/master/hardware-heterogeneity/README.md)
 
 * **HW Acceleration with Intel® Movidius™ Neural Compute Stick** - Priyanka
