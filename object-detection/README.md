@@ -11,7 +11,7 @@ Inference is the process of using a trained neural network to interpret meaning 
 #### 0. Set PATH variables
 The location that you downlaoded the SMart Video workshop content. For example, if you download the MSart Video workshop to *~/smart-video-workshop-master
 
-	export SV=~/smart-video-workshop-master
+	export SV=~/smart-video-workshop-DryRunMay4
 
 #### 1. Compile samples
 	
@@ -50,7 +50,7 @@ The Model Optimizer converts a pretrained Caffe model to be compatible with the 
 	
 > **Note:** if you continue to train or make changes to the Caffe model, you would then need to re-run the Model Optimizer on the updated model.
 
-#### 3. Navigate to the tutorial sample directory
+#### 3. Navigate to the tutorial sample build directory
 
 	cd $SV/object-detection/
 
@@ -94,31 +94,13 @@ Note: For dry-run on May 4th, the video is in the object-detectoin/models folder
 #### 6. Run the security barrier sample application to use the Inference Engine on a video
 The below command runs the application 
 	 
-	 cd ../..
-	./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml 
+	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	sudo ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml 
  
 > **Note:** If you get an error related to "undefined reference to 'google::FlagRegisterer...", try uninstalling libgflags-dev: sudo apt-get remove libgflags-dev
-
-#### 7. Display output
-For simplicity of the code and put more focus on the performance number, the rendering the video with rectangle baxes for object detection has been separated. 
-
-	 make -f Makefile_ROIviewer 
-	./ROIviewer -i /models/cars_1920x1080.h264 -l pascal_voc_classes.txt 
 	
 You should see a video play with cars running on the highway and red bounding boxes around them. 
 
-Here are the parameters used in the above coomand to run the application:
-
-	./tutorial1 -h
-
-		-h              Print a usage message
-		-i <path>       Required. Path to input video file
-		-model <path>   Required. Path to model file.
-		-b #            Batch size.
-		-thresh #       Threshold (0-1: .5=50%)
-		-d <device>     Infer target device (CPU or GPU or MYRIAD)
-		-fr #           maximum frames to process
-	
 
 ## Part 3: Run the example on different hardware
 
@@ -130,7 +112,7 @@ You can enable the output of performance data to the console by using the `-pc` 
 -pc
 ```
 ```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
+./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
 ```
 You'll see the **Total time** it took to run.
 
@@ -142,7 +124,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./tutorial1 -i /models/cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
+./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
 ```
 
 
