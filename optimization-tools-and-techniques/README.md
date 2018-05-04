@@ -8,7 +8,7 @@ For SSD models, the batch size is required to be set at model optimizer level. T
 
 #### Let's first look at the performance numbers for the batch size 1. 
 
-	 cd cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -pc
 
 
