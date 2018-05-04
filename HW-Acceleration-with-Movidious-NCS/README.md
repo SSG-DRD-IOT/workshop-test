@@ -32,12 +32,11 @@ Here ID 03e7:2150 without a description string is the Movidius device.
 
 #### Run the security barrier application on Movidius Neural Compute Stick (NCS)
 Set target hardware as Movidius NCS with
-  
-	cd $SV
 ```
 -d MYRIAD
 ```
 ```
+cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc
 ```
 You will get following error as Movidius NCS supports only FP16 format. 
@@ -61,4 +60,5 @@ Check if the .xml and .bin files are created in folder FP16.
 
 Now run the example application with these new IR files.
 
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
     ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc 
