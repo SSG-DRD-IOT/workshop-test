@@ -90,7 +90,7 @@ You should see the following two files listed in this directory: **squeezenet_ss
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
 #### 4. Before running, download the test video file to a new videos directory. 
-Note: For dry-run on May 4th, the video is in the object-detectoin/models folder. 
+Note: For dry-run on May 4th, the video is in the object-detectoin/models folder, cars_1920x1080.h264. 
 
 	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
