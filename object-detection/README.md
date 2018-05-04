@@ -81,17 +81,13 @@ You should see the following two files listed in this directory: **squeezenet_ss
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
 
-#### 4. Build the sample application with cmake
-
- 	make
-
-#### 5. Before running, download the test video file to a new videos directory. 
+#### 4. Before running, download the test video file to a new videos directory. 
 Note: For dry-run on May 4th, the video is in the object-detectoin/models folder. 
 
 	wget https://pixabay.com/en/videos/download/video-1900_source.mp4?attachment  
 
 
-#### 6. Run the security barrier sample application to use the Inference Engine on a video
+#### 5. Run the security barrier sample application to use the Inference Engine on a video
 The below command runs the application 
 	 
 	 cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
@@ -112,7 +108,7 @@ You can enable the output of performance data to the console by using the `-pc` 
 -pc
 ```
 ```
-./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
+sudo ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d CPU -pc 
 ```
 You'll see the **Total time** it took to run.
 
@@ -124,7 +120,7 @@ Set target hardware as GPU with
 -d GPU
 ```
 ```
-./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
+sudo ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d GPU -pc
 ```
 
 
