@@ -38,7 +38,7 @@ Set target hardware as Movidius NCS with
 -d MYRIAD
 ```
 ```
-./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc
+./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc
 ```
 You will get following error as Movidius NCS supports only FP16 format. 
 <br>
@@ -61,4 +61,4 @@ Check if the .xml and .bin files are created in folder FP16.
 
 Now run the example application with these new IR files.
 
-    ./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/FP16/squeezenet_ssd.xml -d MYRIAD -pc 
+    ./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -d MYRIAD -pc 
