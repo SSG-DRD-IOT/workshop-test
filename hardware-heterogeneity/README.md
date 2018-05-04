@@ -2,7 +2,7 @@ This example shows to use hetero plugin to define preferences to run diffrerent 
 
 #### 1. Navigate to the tutorial sample directory
 
-	cd $SV/object-detection/
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
   
 #### 2. Run the security barrier object detection sample with hetero plugin 
 
