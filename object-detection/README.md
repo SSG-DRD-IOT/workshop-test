@@ -13,16 +13,15 @@ The location that you downlaoded the SMart Video workshop content. For example, 
 
 	export SV=~/smart-video-workshop-DryRunMay4
 
-#### 1. Compile samples
+<!-- #### 1. Compile samples
 	
 	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/
 	sudo mkdir build && cd build
 	sudo cmake –DCMAKE_BUILD_TYPE=Debug, Release  ..
 	sudo make 
-	sudo make cpu_extension  
-
-
-#### 2. Install gflags and python libraries
+	sudo make cpu_extension  --> 
+	
+#### 1. Install gflags and python libraries
 
 	sudo apt install libgflags-dev
 	
@@ -30,6 +29,15 @@ The location that you downlaoded the SMart Video workshop content. For example, 
     
     pip3 install -r /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer/requirements_caffe.txt
     
+## Part 0: Run the demo script
+CV-SDK package includes a demo sample to showcase object detection example by detecting cars from the image. 
+
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+	cd /opt/intel/computer_vision_sdk/deployment_tools/demo
+	sudo ./demo_security_camera_barrier.sh
+
+In next sections, we will run the same sample code with differnt models and video as input.
+
 ## Part 1: Optimize a deep-learning model using the Model Optimizer (MO)
 
 In this section, you will use the Model Optimizer to convert a trained model to two Intermediate Representation (IR) files (one .bin and one .xml). The Inference Engine requires this model conversion so it can use the IR as input and achieve optimum performance on Intel hardware.
