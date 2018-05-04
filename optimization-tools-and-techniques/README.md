@@ -8,25 +8,25 @@ For SSD models, the batch size is required to be set at model optimizer level. T
 
 #### Let's first look at the performance numbers for the batch size 1. 
 
-	 cd $SV/object-detection
-	./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/squeezenet_ssd.xml
+	 cd cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.xml -pc
 
 
 #### Change the batch size to 2 using model optimizer
  Create batch_size/batch_2 folder to store the IR files. 
  
- 	cd /models/sqeeznet_ssd/
+ 	cd $SV/object-detection/models/sqeeznet_ssd/
  	mkdir /batch_size/batch_2
 	
 Use -b flag to define the batch size.
 
 	cd /opt/intel/computer_vision_sdk/deployment_tools/model_optimizer$  
-	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o /object-detection/models/sqeeznet_ssd/batch_size/batch_2 -b 2
+	python3 mo_caffe.py --input_model $SV/object-detection/models/sqeeznet_ssd/squeezenet_ssd.caffemodel -o $SV/object-detection/models/sqeeznet_ssd/batch_size/batch_2 -b 2
 
 #### Run the object-detection example for with new batch size
 
-	cd $SV/object-detection
-	./tutorial1 -i cars_1920x1080.h264 -m /models/sqeeznet_ssd/batch_size/batch_2/squeezenet_ssd.xml
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/sqeeznet_ssd/batch_size/batch_2/squeezenet_ssd.xml -pc
 
 #### Run the example for batch size 8 and 16
 The similer instructions can be used to change batch size to 8 and 16 using model optimizer. Once it is done, run the example again and observe the performace. 
@@ -39,34 +39,44 @@ Run various SSD models on the car detection example which we used in the initial
 #### Set environmental variables and navigate to object detection tutorial directory
 
 	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
-	cd $SV/object-detection
+	cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
 #### a) CPU
  
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -pc
 
 #### b) GPU
  
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d GPU
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d GPU -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d GPU -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d GPU -pc
 
 #### c) Movidius NCS
 
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d MYRIAD
-	./tutorial_1 -m /models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d MYRIAD
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/512/caffe/FP32/ssd512.xml -d MYRIAD -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/300/caffe/FP32/ssd300.xml -d MYRIAD -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d MYRIAD -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/mobilenet-ssd/caffe/FP32/mobilenet-ssd.xml -d MYRIAD -pc
 
 ### 3. Use the right data type for your target HW and accuracy needs
 In this section, we will consider example of GPU for which FP16 operations are more optimized as compared to FP32 operations. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
 
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU
-	./tutorial_1 -m /models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp16.xml -d GPU
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp32.xml -d GPU -pc
+	
+	./security_barrier_camera_sample -i $SV/object-detection/models/cars_1920x1080.h264 -m $SV/object-detection/models/model_downloader/object_detection/common/ssd/GoogleNet/SSD_GoogleNet_v2_fp16.xml -d GPU -pc
 
 From the performance numbers, it’s clear that we got much better performance for FP16 models. 
 
