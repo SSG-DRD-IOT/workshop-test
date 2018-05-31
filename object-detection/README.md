@@ -2,7 +2,7 @@
 
 This tutorial uses a Single Shot MultiBox Detector (SSD) on a trained mobilenet-ssd* model to walk you through the basic steps of using two key components of the OpenVINO™ toolkit: Model Optimizer and Inference Engine. 
 
-Model Optimizer takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. The biggest performance boost for a computer vision application can be achieved by converting data types to match the hardware. 
+Model Optimizer is a cross-platform command-line tool that takes pre-trained deep learning models and optimizes them for performance/space using conservative topology transformations. It performs static model analysis and adjusts deep learning models for optimal execution on end-point target devices. 
 
 Inference is the process of using a trained neural network to interpret data, such as images. This lab feeds a short video of cars, frame-by-frame, to the Inference Engine which subsequently utilizes an optimized trained neural network to detect cars. 
 
@@ -110,11 +110,15 @@ Here are the parameters used in the above command to run the application:
 
 **IT'S BEST TO OPEN A NEW TERMINAL WINDOW SO THAT YOU CAN COMPARE THE RESULTS**
 
+ Make sure that you have sourced the environmental variables for each newly opened terminal window.
+ 
+	source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+ 
 #### 1. CPU
 ```
 ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d CPU
 ```
-You will see the **Total time** it took to run the inference.
+You will see the **total time** it took to run the inference.
 
 #### 2. GPU
 Since you installed the OpenCL™ drivers to use the GPU, you can run the inference on GPU and compare the difference.
@@ -124,4 +128,4 @@ Set target hardware as GPU with **-d GPU**
 ./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
 ```
 
-The **Total time** between CPU and GPU will vary depending on your system.
+The **total time** between CPU and GPU will vary depending on your system.
