@@ -38,11 +38,7 @@ The similar instructions can be used to change batch size to 8 and 16 using Mode
 
 ### 2. Pick the right model based on application and hardware
 Use/train a model with the right performance/accuracy tradeoffs. Performance differences between models can be bigger than any optimization you can do at the inference app level.
-<<<<<<< HEAD
-Run various SSD models from model_downloader on the car detection example which we used in the initial tutorial and observe the performance. We will run these tests on different hardware accelerator to determine how application performance depends on models as well as hardware.
-=======
 Run various SSD models from the model_downloader in the car detection example which we used in the initial tutorial and observe the performance. We will run these tests on different hardware accelerators to determine how application performance depends on models as well as hardware. 
->>>>>>> upstream/master
 
 ### Run Model Optimizer on the models to get IR files
 	cd $SV/object-detection
@@ -89,29 +85,16 @@ Run various SSD models from the model_downloader in the car detection example wh
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD300/FP16/ssd300.xml -d MYRIAD
 
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/SSD512/FP16/ssd512.xml -d MYRIAD
-<<<<<<< HEAD
-
-
-### 3. Use the right data type for your target harware and accuracy needs
-In this section, we will consider example of GPU for which FP16 operations are better optimized than FP32 operations. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference.
-
-	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP32/mobilenet-ssd.xml -d GPU
-=======
 	
 > **Note**: There is often USB write error for Intel® Movidius™ Neural Compute Stick, please try re-running the command. Sometimes it takes 3 trials. 
 
 	
 ### 3. Use the right data type for your target harware and accuracy needs
 In this section, we will consider an example running on a GPU. FP16 operations are better optimized than FP32 on GPUs. We will run the object detection example with SSD models with data types FP16 and FP32 and observe the performance difference. 
->>>>>>> upstream/master
 
 	./tutorial1 -i $SV/object-detection/Cars\ -\ 1900.mp4 -m $SV/object-detection/mobilenet-ssd/FP16/mobilenet-ssd.xml -d GPU
 
-<<<<<<< HEAD
-From the performance numbers, it is clear that we got better performance for FP16 models.
-=======
 It is clear that we got better performance with FP16 models. 
->>>>>>> upstream/master
 
 
 ### 4. Use async
