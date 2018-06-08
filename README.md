@@ -1,4 +1,4 @@
-# Optimized Inference at the Edge with Intel® Tools and Technologies 
+-# Optimized Inference at the Edge with Intel® Tools and Technologies 
 This workshop will walk you through a computer vision workflow using the latest Intel® technologies and comprehensive toolkits including support for deep learning algorithms that help accelerate smart video applications. You will learn how to optimize and improve performance with and without external accelerators and utilize tools to help you identify the best hardware configuration for your needs. This workshop will also outline the various frameworks and topologies supported by Intel® accelerator tools. 
 
 ## How to Get Started

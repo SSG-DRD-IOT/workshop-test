@@ -1,4 +1,3 @@
-
 # OpenVINO™ toolkit hetero plugin 
 
 This example shows how to use hetero plugin to define preferences to run different network layers on different hardware types. Here, we will use the command line option to define hetero plugin usage where the layer distribution is already defined. However, hetero plugin also allows developers to customize distribution of layers execution on different hardware by specifying it in the application code.  
@@ -22,7 +21,7 @@ This example shows how to use hetero plugin to define preferences to run differe
 Observe the performance time required to process each frame by Inference Engine. For this particular example, inferance ran faster when prioritized for CPU as oppose to when GPU was the first priority.  
 
 ### Inference Engine classification sample     
-OpenVINO install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the classification sample. The output will be object labels with confidence numbers.  
+OpenVINO install folder (/opt/intel/computer_vision_sdk/) includes various samples for developers to understand how Inference Engine APIs can be used. These samples have -pc flag implmented which shows per topology layer performance report. This will allow to see which layers are running on which hardware. We will run a very basic classification sample as an example in this section. We will provide car image as input to the clasification sample. The output will be object labels with confidence numbers.  
 
 #### 1. First, get the classification model and convert that to IR using Model Optimizer
 For this example, we will use squeezenet8 model downloaded with the model downlaoder script while setting up the OS for the workshop. 
